@@ -1,0 +1,4 @@
+# SR-1177 — Cinematic Version 2
+Approved direction: understated MA wordmark, satellite-led header, gold CTAs, six capability tiles, build/connect/operate experiences. Existing orbital network, theme toggle and mission lab retained. Interactive spacecraft builder is an illustrative 2D SVG schematic, not flight hardware or a 3D CAD model. All operations are local simulations.
+
+The satellite header uses NASA's publicly hosted TDRS illustration, credited on the site, as interim artwork while the approved generated mockup crop is transferred. It does not represent a Mergercast-owned satellite or a NASA affiliation. Source: https://www.nasa.gov/missions/tdrs/tdrs-an-era-of-continuous-space-communications/. Replace the image URL in src/v2.css with /satellite-hero.webp after uploading the provided original mockup crop into public/. No secrets, DNS changes, or live MCP endpoints.
