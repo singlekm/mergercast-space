@@ -1,1 +1,19 @@
-{"name":"mergercast-space","version":"1.0.0","private":true,"type":"module","scripts":{"dev":"vite","build":"vite build","preview":"vite preview"},"dependencies":{"react":"19.1.0","react-dom":"19.1.0"},"devDependencies":{"vite":"6.3.5"}}
+{
+  "name": "mergercast-space",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && node scripts/build-pwa.mjs",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  },
+  "devDependencies": {
+    "vite": "6.3.5",
+    "pngjs": "7.0.0"
+  }
+}
