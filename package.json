@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "node scripts/assemble-intro.mjs && vite",
-    "build": "node scripts/assemble-intro.mjs && vite build && node scripts/build-pwa.mjs",
-    "preview": "vite preview"
+    "build": "npm test && node scripts/assemble-intro.mjs && vite build && node scripts/build-pwa.mjs",
+    "preview": "vite preview",
+    "test": "node --test tests/mission.test.mjs"
   },
   "dependencies": {
     "react": "19.1.0",
