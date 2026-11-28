@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="en" data-skin="parchment">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>my.mergercast.space · Mergercast Launchpad</title>
+<meta name="description" content="Mergercast launchpad: Mergercast Aerospace, Aerospace, Engineering Labs, Engineering, Robotics and Dyson 500, each opening in its own popup window.">
+<meta name="theme-color" content="#0A0A0A">
+<meta property="og:title" content="my.mergercast.space · Mergercast Launchpad">
+<meta property="og:description" content="Six Mergercast and York AI destinations, each in its own popup window.">
+<meta property="og:image" content="https://my.mergercast.space/assets/bg-1280.jpg">
+<meta property="og:url" content="https://my.mergercast.space/">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/icons/mg-64.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icons/mg-192.png">
+<link rel="apple-touch-icon" href="assets/icons/mg-apple-180.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preload" as="image" href="assets/bg-1280.webp" type="image/webp" media="(max-width: 1280px)">
+<link rel="preload" as="image" href="assets/bg-2400.webp" type="image/webp" media="(min-width: 1281px)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Bebas+Neue&family=DM+Mono:wght@400;500&family=Orbitron:wght@500;700&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<script>
+  /* apply the saved skin before first paint */
+  (function () {
+    var k = 'mms.skin.v1', s = null;
+    try { s = localStorage.getItem(k); } catch (e) {}
+    if (s !== 'parchment' && s !== 'obsidian' && s !== 'yorkai') {
+      s = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'obsidian' : 'parchment';
+    }
+    document.documentElement.setAttribute('data-skin', s);
+  })();
+</script>
+<style>
+:root {
+  /* Parchment skin: Red Team crimson on the canyon photo */
+  --ink: #0A0A0A;
+  --surface: #F7F5F0;
+  --parchment: #EFECE5;
+  --accent: #B91C1C;
+  --accent-hi: #DC2626;
+  --accent-2: #B91C1C;
+  --glow: rgba(185, 28, 28, 0.45);
+  --tile: rgba(12, 11, 17, 0.50);
+  --tile-hover: rgba(12, 11, 17, 0.66);
+  --tile-border: rgba(255, 255, 255, 0.16);
+  --tile-border-hi: rgba(255, 255, 255, 0.42);
+  --chip: rgba(255, 255, 255, 0.12);
+  --scrim: linear-gradient(180deg, rgba(10, 9, 14, 0.66) 0%, rgba(10, 9, 14, 0.26) 42%, rgba(10, 9, 14, 0.62) 100%);
+  --thumb: rgba(255, 255, 255, 0.26);
+  --radius: 3px;
+  --f-display: 'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
+  --f-body: 'EB Garamond', Garamond, Georgia, serif;
+  --f-num: 'Bebas Neue', 'Oswald', 'Arial Narrow', Impact, sans-serif;
+  --f-mono: 'DM Mono', ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: dark;
+}
+:root[data-skin="obsidian"] {
+  /* Obsidian skin: volcanic black with crimson accent and indigo glow */
+  --accent: #E0284A;
+  --accent-hi: #FF6680;
+  --accent-2: #5B5BE6;
+  --glow: rgba(91, 91, 230, 0.50);
+  --tile: rgba(12, 11, 17, 0.70);
+  --tile-hover: rgba(23, 21, 31, 0.84);
+  --tile-border: rgba(238, 234, 244, 0.14);
+  --tile-border-hi: rgba(163, 161, 255, 0.60);
+  --scrim: linear-gradient(180deg, rgba(6, 5, 10, 0.80) 0%, rgba(6, 5, 10, 0.50) 42%, rgba(6, 5, 10, 0.76) 100%);
+}
+:root[data-skin="yorkai"] {
+  /* York AI skin: house SPACE palette, navy canvas, blue accent, star field */
+  --accent: #3B82F6;
+  --accent-hi: #60A5FA;
+  --accent-2: #3B82F6;
+  --glow: rgba(59, 130, 246, 0.50);
+  --tile: rgba(7, 12, 24, 0.72);
+  --tile-hover: rgba(10, 16, 32, 0.86);
+  --tile-border: rgba(226, 232, 240, 0.14);
+  --tile-border-hi: rgba(147, 197, 253, 0.62);
+  --scrim: linear-gradient(180deg, rgba(15, 32, 64, 0.84) 0%, rgba(7, 12, 24, 0.66) 42%, rgba(7, 12, 24, 0.88) 100%);
+  --f-display: 'Orbitron', 'Eurostile', Arial, sans-serif;
+  --f-body: 'Rajdhani', 'Arial Narrow', Arial, sans-serif;
+  --f-num: 'Rajdhani', 'Arial Narrow', Arial, sans-serif;
+  --f-mono: 'Share Tech Mono', ui-monospace, Menlo, Consolas, monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+html { background: #0A0A0A; overflow: hidden; overscroll-behavior: none; }
+body {
+  height: 100dvh; overflow: hidden; overscroll-behavior: none;
+  color: #fff; font-family: var(--f-body); font-size: 17px; line-height: 1.45;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: transparent;
+}
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--accent-hi); outline-offset: 2px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- scrollbars blend in: transparent track, thin thumb, accent on hover ---------- */
+::-webkit-scrollbar { width: 10px; height: 10px; background: transparent; }
+::-webkit-scrollbar-track, ::-webkit-scrollbar-corner { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--thumb); background-clip: padding-box; border: 3px solid transparent; border-radius: 3px; min-height: 40px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); background-clip: padding-box; border: 3px solid transparent; }
+::-webkit-scrollbar-button { display: none; width: 0; height: 0; }
+@supports not selector(::-webkit-scrollbar) { * { scrollbar-width: thin; scrollbar-color: var(--thumb) transparent; } }
+
+/* ---------- full-page canyon photo ---------- */
+.bg {
+  position: fixed; inset: 0; z-index: 0; background-color: #1a1612;
+  background-image: var(--scrim), url("assets/bg-1280.jpg");
+  background-image: var(--scrim), image-set(url("assets/bg-1280.webp") type("image/webp"), url("assets/bg-1280.jpg") type("image/jpeg"));
+  background-size: cover; background-position: center 42%; background-repeat: no-repeat;
+  transition: background-image .3s ease;
+}
+@media (min-width: 1281px), (min-resolution: 2dppx) and (min-width: 700px) {
+  .bg {
+    background-image: var(--scrim), url("assets/bg-2400.jpg");
+    background-image: var(--scrim), image-set(url("assets/bg-2400.webp") type("image/webp"), url("assets/bg-2400.jpg") type("image/jpeg"));
+  }
+}
+:root[data-skin="yorkai"] .bg::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .75;
+  background-image:
+    radial-gradient(1px 1px at 23px 31px, rgba(255,255,255,.9), transparent 60%),
+    radial-gradient(1px 1px at 71px 112px, rgba(255,255,255,.65), transparent 60%),
+    radial-gradient(1.6px 1.6px at 143px 47px, rgba(191,219,254,.95), transparent 60%),
+    radial-gradient(1px 1px at 188px 139px, rgba(255,255,255,.7), transparent 60%),
+    radial-gradient(1.2px 1.2px at 97px 9px, rgba(255,255,255,.8), transparent 60%),
+    radial-gradient(1px 1px at 41px 197px, rgba(255,255,255,.55), transparent 60%),
+    radial-gradient(1.4px 1.4px at 211px 233px, rgba(255,255,255,.85), transparent 60%),
+    radial-gradient(1px 1px at 289px 81px, rgba(147,197,253,.8), transparent 60%),
+    radial-gradient(1px 1px at 331px 271px, rgba(255,255,255,.6), transparent 60%);
+  background-size: 240px 220px, 240px 220px, 240px 220px, 240px 220px, 240px 220px, 240px 220px, 360px 310px, 360px 310px, 360px 310px;
+}
+
+/* ---------- page frame: masthead / tiles / footer inside one viewport ---------- */
+.app {
+  position: relative; z-index: 1; height: 100dvh; max-width: 1320px; margin: 0 auto;
+  padding: env(safe-area-inset-top) max(20px, env(safe-area-inset-right)) 0 max(20px, env(safe-area-inset-left));
+  display: grid; grid-template-rows: auto minmax(0, 1fr) auto;
+}
+
+/* ---------- masthead on the photo ---------- */
+.masthead { border-top: 3px solid var(--accent); padding: 12px 0 16px; display: grid; gap: 8px; text-shadow: 0 1px 14px rgba(0,0,0,0.5); }
+.brandbar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 16px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; font-family: var(--f-mono); font-size: 12.5px; font-weight: 500; letter-spacing: .03em; }
+.brand-home { display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; border-radius: var(--radius); }
+.brand-mark { height: 34px; width: auto; display: block; filter: drop-shadow(0 0 1px rgba(255,255,255,0.75)) drop-shadow(0 2px 6px rgba(0,0,0,0.35)); transition: transform .15s ease; }
+.brand-home:hover .brand-mark { transform: translateY(-1px); }
+.bar-right { display: inline-flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.sitelinks a { font-family: var(--f-mono); font-size: 11.5px; letter-spacing: .05em; color: rgba(255,255,255,0.86); display: inline-flex; align-items: center; min-height: 44px; border-bottom: 1px solid transparent; }
+.sitelinks a:hover { color: #fff; border-bottom-color: var(--accent-hi); }
+.skin { display: inline-flex; border: 1px solid rgba(255,255,255,0.35); border-radius: var(--radius); overflow: hidden; background: rgba(10,9,14,0.38); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); text-shadow: none; }
+.skin button { min-height: 40px; padding: 0 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: .07em; text-transform: uppercase; color: rgba(255,255,255,0.88); display: inline-flex; align-items: center; gap: 8px; }
+.skin button + button { border-left: 1px solid rgba(255,255,255,0.25); }
+.skin button:hover:not(.on) { background: rgba(255,255,255,0.1); }
+.skin button.on { background: #F7F5F0; color: #0A0A0A; }
+:root[data-skin="obsidian"] .skin button.on { background: var(--accent); color: #fff; }
+:root[data-skin="yorkai"] .skin button.on { background: var(--accent); color: #04101F; }
+.dot { width: 11px; height: 11px; border-radius: 50%; flex: none; }
+.dot-parchment { background: #EFECE5; box-shadow: inset 0 0 0 3px #B91C1C; }
+.dot-obsidian { background: linear-gradient(135deg, #E0284A 50%, #5B5BE6 50%); box-shadow: 0 0 0 1px rgba(255,255,255,0.5); }
+.dot-yorkai { background: radial-gradient(circle at 35% 35%, #BFDBFE 0 18%, #3B82F6 20% 58%, #0F2040 60%); box-shadow: 0 0 0 1px rgba(255,255,255,0.5); }
+
+.mast-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 16px; }
+.eyebrow { font-family: var(--f-mono); font-size: 11.5px; font-weight: 500; letter-spacing: .09em; text-transform: uppercase; color: rgba(255,255,255,0.94); }
+.eyebrow.muted { color: rgba(255,255,255,0.74); font-weight: 400; }
+.mast-title { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 18px; }
+h1 { font-family: var(--f-display); font-weight: 700; font-size: clamp(30px, 4.4vw, 52px); line-height: 1.04; letter-spacing: .005em; text-wrap: balance; }
+:root[data-skin="yorkai"] h1 { font-size: clamp(24px, 3.4vw, 40px); letter-spacing: .02em; }
+.byline { font-style: italic; font-size: clamp(15px, 1.5vw, 18px); color: rgba(255,255,255,0.88); }
+:root[data-skin="yorkai"] .byline { font-style: normal; font-weight: 500; }
+
+/* ---------- the six boxes ---------- */
+.deck { min-height: 0; overflow: auto; overscroll-behavior: contain; padding: 2px 2px 10px; margin: 0 -2px; }
+.grid { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: minmax(168px, 1fr); gap: 14px; height: 100%; }
+.cell { position: relative; min-height: 0; }
+.tile {
+  position: relative; height: 100%; display: grid; grid-template-rows: auto 1fr auto; gap: 6px;
+  padding: 14px 16px 14px; border-radius: var(--radius);
+  background: var(--tile); border: 1px solid var(--tile-border); border-top: 3px solid var(--accent);
+  -webkit-backdrop-filter: blur(10px) saturate(1.1); backdrop-filter: blur(10px) saturate(1.1);
+  box-shadow: 0 18px 50px rgba(0,0,0,0.28);
+  transition: transform .18s ease, background-color .18s ease, border-color .18s ease, box-shadow .18s ease;
+  overflow: hidden; isolation: isolate;
+}
+.tile::before {
+  content: ""; position: absolute; inset: -40% -20% auto; height: 80%; z-index: -1; pointer-events: none;
+  background: radial-gradient(closest-side, var(--glow), transparent 70%); opacity: 0; transition: opacity .25s ease;
+}
+.tile:hover, .tile:focus-visible { background: var(--tile-hover); border-color: var(--tile-border-hi); border-top-color: var(--accent-hi); transform: translateY(-2px); box-shadow: 0 24px 60px rgba(0,0,0,0.36); }
+.tile:hover::before, .tile:focus-visible::before { opacity: .9; }
+.tile:active { transform: translateY(0); }
+.tile-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding-right: 40px; }
+.tile-num { font-family: var(--f-num); font-size: 22px; line-height: 1; letter-spacing: .04em; color: rgba(255,255,255,0.62); }
+:root[data-skin="yorkai"] .tile-num { font-size: 17px; font-weight: 700; }
+.tile-mode { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,0.8); background: var(--chip); border: 1px solid rgba(255,255,255,0.14); border-radius: var(--radius); padding: 3px 7px; white-space: nowrap; transition: background-color .18s ease, color .18s ease; }
+.tile:hover .tile-mode, .tile:focus-visible .tile-mode { background: var(--accent); border-color: transparent; color: #fff; }
+:root[data-skin="yorkai"] .tile:hover .tile-mode { color: #04101F; }
+.tile.is-open .tile-num::after { content: " · open"; font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-hi); vertical-align: middle; }
+.tile-logo { display: flex; align-items: center; justify-content: center; min-height: 0; padding: 4px 0; }
+.tile-logo img { height: clamp(46px, 9vh, 84px); width: auto; max-width: 78%; object-fit: contain; filter: drop-shadow(0 2px 10px rgba(0,0,0,0.45)); transition: transform .25s ease; }
+.tile-logo img.emblem { height: clamp(58px, 12vh, 108px); max-width: 60%; }
+.tile:hover .tile-logo img { transform: scale(1.04); }
+.tile-text { display: grid; gap: 1px; text-align: center; }
+.tile-name { font-family: var(--f-display); font-weight: 700; font-size: clamp(19px, 1.9vw, 25px); line-height: 1.1; color: #fff; }
+:root[data-skin="yorkai"] .tile-name { font-size: clamp(14px, 1.35vw, 18px); letter-spacing: .04em; }
+.tile-desc { font-size: 15px; color: rgba(255,255,255,0.80); font-style: italic; }
+:root[data-skin="yorkai"] .tile-desc { font-style: normal; font-weight: 500; }
+.tile-url { font-family: var(--f-mono); font-size: 11.5px; letter-spacing: .03em; color: rgba(255,255,255,0.68); margin-top: 3px; }
+.tile-tab {
+  position: absolute; top: 3px; right: 0; z-index: 2; width: 44px; height: 44px; display: grid; place-items: center;
+  color: rgba(255,255,255,0.72); border-radius: var(--radius);
+}
+.tile-tab:hover { color: #fff; background: rgba(255,255,255,0.10); }
+.tile-tab svg { width: 16px; height: 16px; }
+
+/* ---------- window manager bar (desktop popups) ---------- */
+.winbar {
+  position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%); z-index: 20;
+  display: inline-flex; align-items: center; gap: 4px; padding: 4px 4px 4px 14px;
+  background: rgba(10,9,14,0.78); border: 1px solid rgba(255,255,255,0.22); border-top: 2px solid var(--accent);
+  border-radius: var(--radius); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  font-family: var(--f-mono); font-size: 11.5px; letter-spacing: .05em; color: rgba(255,255,255,0.9);
+  box-shadow: 0 18px 50px rgba(0,0,0,0.4);
+}
+.winbar[hidden] { display: none; }
+.winbar .live { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-hi); box-shadow: 0 0 0 3px rgba(255,255,255,0.08); margin-right: 6px; }
+.winbar b { font-family: var(--f-num); font-size: 17px; font-weight: 400; letter-spacing: .03em; margin-right: 4px; }
+.winbar button { min-height: 36px; padding: 0 12px; border-radius: var(--radius); text-transform: uppercase; font-size: 10.5px; letter-spacing: .08em; }
+.winbar button:hover { background: rgba(255,255,255,0.12); }
+.winbar .danger:hover { background: var(--accent); color: #fff; }
+
+/* ---------- toast ---------- */
+.toast {
+  position: fixed; left: 50%; top: 18px; transform: translate(-50%, -12px); z-index: 30; max-width: min(92vw, 520px);
+  padding: 10px 14px; background: rgba(10,9,14,0.88); border: 1px solid rgba(255,255,255,0.2); border-left: 3px solid var(--accent);
+  border-radius: var(--radius); font-size: 15px; color: #fff; opacity: 0; pointer-events: none; transition: opacity .2s ease, transform .2s ease;
+}
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* ---------- in-page popup window (phones and tablets) ---------- */
+dialog.sheet {
+  position: fixed; inset: 0; width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; border: 0; padding: 0;
+  background: #0A0A0A; color: #fff; overflow: hidden;
+}
+dialog.sheet::backdrop { background: rgba(0,0,0,0.6); }
+dialog.sheet[open] { display: grid; grid-template-rows: auto minmax(0, 1fr); animation: rise .22s ease; }
+@keyframes rise { from { transform: translateY(14px); opacity: .4; } to { transform: none; opacity: 1; } }
+.sheet-bar {
+  display: flex; align-items: center; gap: 6px; padding: env(safe-area-inset-top) 6px 0 14px;
+  min-height: calc(52px + env(safe-area-inset-top)); background: rgba(12,11,17,0.96); border-top: 3px solid var(--accent); border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+.sheet-title { flex: 1; min-width: 0; display: grid; }
+.sheet-title strong { font-family: var(--f-display); font-size: 19px; line-height: 1.1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sheet-title span { font-family: var(--f-mono); font-size: 11px; color: rgba(255,255,255,0.66); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sheet-btn { min-width: 44px; min-height: 44px; display: inline-grid; place-items: center; border-radius: var(--radius); color: rgba(255,255,255,0.88); font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .07em; text-transform: uppercase; padding: 0 8px; }
+.sheet-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
+.sheet-btn svg { width: 18px; height: 18px; }
+.sheet-frame { position: relative; background: #111; }
+.sheet-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #fff; }
+.sheet-hint { position: absolute; left: 50%; bottom: calc(12px + env(safe-area-inset-bottom)); transform: translateX(-50%); z-index: 2; font-family: var(--f-mono); font-size: 11px; letter-spacing: .04em; background: rgba(10,9,14,0.85); border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius); padding: 8px 12px; color: rgba(255,255,255,0.9); transition: opacity .4s ease; white-space: nowrap; }
+.sheet-hint a { text-decoration: underline; text-underline-offset: 2px; }
+.sheet-hint.fade { opacity: 0; pointer-events: none; }
+
+/* ---------- footer ---------- */
+.foot {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px 16px;
+  padding: 8px 0 calc(10px + env(safe-area-inset-bottom)); border-top: 1px solid rgba(255,255,255,0.18);
+  font-family: var(--f-mono); font-size: 11px; letter-spacing: .04em; color: rgba(255,255,255,0.74); text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+}
+.foot nav { display: inline-flex; flex-wrap: wrap; gap: 2px 14px; align-items: center; }
+.foot a { display: inline-flex; align-items: center; gap: 7px; min-height: 32px; }
+.foot a:hover { color: #fff; }
+.bicmm-mark { width: 16px; height: 16px; flex: none; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 960px) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: minmax(150px, 1fr); gap: 12px; }
+}
+@media (max-width: 640px) {
+  .app { padding-left: max(12px, env(safe-area-inset-left)); padding-right: max(12px, env(safe-area-inset-right)); }
+  .masthead { padding: 8px 0 12px; gap: 6px; }
+  .brand { font-size: 11px; gap: 6px; }
+  .brand-mark { height: 28px; }
+  .sitelinks { display: none; }
+  .skin button { min-width: 40px; padding: 0; justify-content: center; }
+  .skin-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .eyebrow.muted { display: none; }
+  .byline { display: none; }
+  .grid { gap: 10px; grid-auto-rows: minmax(132px, 1fr); }
+  .tile { padding: 10px 10px 10px; gap: 4px; }
+  .tile-head { padding-right: 34px; }
+  .tile-num { font-size: 18px; }
+  .tile-mode { font-size: 9.5px; padding: 2px 5px; }
+  .tile-logo img { height: clamp(36px, 7.5vh, 60px); max-width: 84%; }
+  .tile-logo img.emblem { height: clamp(42px, 8.5vh, 66px); }
+  .tile-name { font-size: 17px; }
+  :root[data-skin="yorkai"] .tile-name { font-size: 12.5px; }
+  .tile-desc { display: none; }
+  .tile-url { font-size: 10px; }
+  .tile-tab { top: 1px; width: 40px; height: 40px; }
+  .foot { font-size: 10px; flex-wrap: nowrap; }
+  .foot .foot-ticket, .foot .foot-wide { display: none; }
+}
+@media (max-height: 640px) and (min-width: 641px) {
+  .byline { display: none; }
+  .tile-desc { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"></div>
+
+<div class="app">
+  <header class="masthead">
+    <div class="brandbar">
+      <span class="brand">
+        <a class="brand-home" href="https://mergercast.group" target="_blank" rel="noopener" title="mergercast.group">
+          <img class="brand-mark" src="assets/mg-mark.png" alt="Mergercast Group home" width="70" height="34">
+        </a>
+        <span class="brand-name">my.mergercast.space</span>
+      </span>
+      <span class="bar-right">
+        <nav class="sitelinks" aria-label="Mergercast Group sites">
+          <a href="https://sitemap.mergercast.group" target="_blank" rel="noopener">sitemap.mergercast.group</a>
+        </nav>
+        <span class="skin" role="group" aria-label="Theme">
+          <button type="button" data-skin="parchment" aria-pressed="false"><span class="dot dot-parchment" aria-hidden="true"></span><span class="skin-label">Parchment</span></button>
+          <button type="button" data-skin="obsidian" aria-pressed="false"><span class="dot dot-obsidian" aria-hidden="true"></span><span class="skin-label">Obsidian</span></button>
+          <button type="button" data-skin="yorkai" aria-pressed="false"><span class="dot dot-yorkai" aria-hidden="true"></span><span class="skin-label">York AI</span></button>
+        </span>
+      </span>
+    </div>
+    <div class="mast-top">
+      <span class="eyebrow">Mergercast Holdings · Launchpad</span>
+      <span class="eyebrow muted" id="mode-note">Six destinations · each opens in its own popup window</span>
+    </div>
+    <div class="mast-title">
+      <h1>Launchpad</h1>
+      <p class="byline">Aerospace, engineering and robotics across Mergercast and York AI.</p>
+    </div>
+  </header>
+
+  <main class="deck" aria-label="Destinations">
+    <ul class="grid">
+      <li class="cell">
+        <a class="tile" href="https://mergercast.space/" data-key="ma" data-title="Mergercast Aerospace" target="_blank" rel="noopener">
+          <span class="tile-head"><span class="tile-num">01</span><span class="tile-mode" data-mode>Popup ↗</span></span>
+          <span class="tile-logo"><img src="assets/logos/ma-white.png" alt="MA" width="690" height="366"></span>
+          <span class="tile-text">
+            <span class="tile-name">Mergercast Aerospace</span>
+            <span class="tile-desc">Mission Control · Orbital MCP</span>
+            <span class="tile-url">mergercast.space</span>
+          </span>
+        </a>
+        <a class="tile-tab" href="https://mergercast.space/" target="_blank" rel="noopener" aria-label="Open Mergercast Aerospace in a new tab" title="Open in new tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
+      </li>
+      <li class="cell">
+        <a class="tile" href="https://aerospace.mergercast.group/" data-key="aerospace" data-title="Aerospace" data-frame="no" target="_blank" rel="noopener">
+          <span class="tile-head"><span class="tile-num">02</span><span class="tile-mode" data-mode>Popup ↗</span></span>
+          <span class="tile-logo"><img src="assets/logos/aerospace.svg" class="emblem" alt="" width="64" height="64"></span>
+          <span class="tile-text">
+            <span class="tile-name">Aerospace</span>
+            <span class="tile-desc">AI needs guide · Fractional CAIO plan</span>
+            <span class="tile-url">aerospace.<wbr>mergercast.group</span>
+          </span>
+        </a>
+        <a class="tile-tab" href="https://aerospace.mergercast.group/" target="_blank" rel="noopener" aria-label="Open Aerospace in a new tab" title="Open in new tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
+      </li>
+      <li class="cell">
+        <a class="tile" href="https://engineering.mergercast.group/python/audio/" data-key="labs" data-title="Engineering Labs" target="_blank" rel="noopener">
+          <span class="tile-head"><span class="tile-num">03</span><span class="tile-mode" data-mode>Popup ↗</span></span>
+          <span class="tile-logo"><img src="assets/logos/engineering-labs.svg" class="emblem" alt="" width="64" height="64"></span>
+          <span class="tile-text">
+            <span class="tile-name">Engineering Labs</span>
+            <span class="tile-desc">Python labs · audio briefings</span>
+            <span class="tile-url">engineering.<wbr>mergercast.group<wbr>/python/audio</span>
+          </span>
+        </a>
+        <a class="tile-tab" href="https://engineering.mergercast.group/python/audio/" target="_blank" rel="noopener" aria-label="Open Engineering Labs in a new tab" title="Open in new tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
+      </li>
+      <li class="cell">
+        <a class="tile" href="https://engineering.mergercast.group/" data-key="engineering" data-title="Engineering" target="_blank" rel="noopener">
+          <span class="tile-head"><span class="tile-num">04</span><span class="tile-mode" data-mode>Popup ↗</span></span>
+          <span class="tile-logo"><img src="assets/logos/engineering.svg" class="emblem" alt="" width="64" height="64"></span>
+          <span class="tile-text">
+            <span class="tile-name">Engineering</span>
+            <span class="tile-desc">R1 Aerospace Handbook</span>
+            <span class="tile-url">engineering.<wbr>mergercast.group</span>
+          </span>
+        </a>
+        <a class="tile-tab" href="https://engineering.mergercast.group/" target="_blank" rel="noopener" aria-label="Open Engineering in a new tab" title="Open in new tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
+      </li>
+      <li class="cell">
+        <a class="tile" href="https://yorkai.space/" data-key="robotics" data-title="Robotics" target="_blank" rel="noopener">
+          <span class="tile-head"><span class="tile-num">05</span><span class="tile-mode" data-mode>Popup ↗</span></span>
+          <span class="tile-logo"><img src="assets/logos/robotics.svg" class="emblem" alt="" width="64" height="64"></span>
+          <span class="tile-text">
+            <span class="tile-name">Robotics</span>
+            <span class="tile-desc">York AI · aerospace robotics</span>
+            <span class="tile-url">yorkai.space</span>
+          </span>
+        </a>
+        <a class="tile-tab" href="https://yorkai.space/" target="_blank" rel="noopener" aria-label="Open Robotics in a new tab" title="Open in new tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
+      </li>
+      <li class="cell">
+        <a class="tile" href="https://dyson500.yorkai.space/" data-key="dyson500" data-title="Dyson 500" target="_blank" rel="noopener">
+          <span class="tile-head"><span class="tile-num">06</span><span class="tile-mode" data-mode>Popup ↗</span></span>
+          <span class="tile-logo"><img src="assets/logos/dyson-500.svg" class="emblem" alt="" width="64" height="64"></span>
+          <span class="tile-text">
+            <span class="tile-name">Dyson 500</span>
+            <span class="tile-desc">Dyson Ascension</span>
+            <span class="tile-url">dyson500.<wbr>yorkai.space</span>
+          </span>
+        </a>
+        <a class="tile-tab" href="https://dyson500.yorkai.space/" target="_blank" rel="noopener" aria-label="Open Dyson 500 in a new tab" title="Open in new tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
+      </li>
+    </ul>
+  </main>
+
+  <footer class="foot">
+    <nav aria-label="Footer">
+      <span class="foot-wide">© Mergercast Holdings</span>
+      <a class="foot-wide" href="https://mergercast.group" target="_blank" rel="noopener">mergercast.group</a>
+      <a href="https://sitemap.mergercast.group" target="_blank" rel="noopener">sitemap.mergercast.group</a>
+      <span class="foot-ticket" title="SRAI ticket">SRAI SR-1178</span>
+    </nav>
+    <a href="https://bicmm.com" target="_blank" rel="noopener" title="bicmm.com">
+      <svg class="bicmm-mark" viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="1.5" width="21" height="21" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="5.5" y="13" width="3" height="6" fill="currentColor"/><rect x="10.5" y="9" width="3" height="10" fill="currentColor"/><rect x="15.5" y="5" width="3" height="14" fill="currentColor"/></svg>
+      <span>bicmm.com</span>
+    </a>
+  </footer>
+</div>
+
+<div class="winbar" id="winbar" role="status" aria-live="polite" hidden>
+  <span class="live" aria-hidden="true"></span><b id="win-count">0</b><span id="win-label">popup windows open</span>
+  <button type="button" id="win-front">Bring to front</button>
+  <button type="button" id="win-close" class="danger">Close all</button>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<dialog class="sheet" id="sheet" aria-labelledby="sheet-name">
+  <div class="sheet-bar">
+    <div class="sheet-title"><strong id="sheet-name">—</strong><span id="sheet-url"></span></div>
+    <a class="sheet-btn" id="sheet-out" href="#" target="_blank" rel="noopener" title="Open in new tab" aria-label="Open in new tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
+    <button type="button" class="sheet-btn" id="sheet-close" aria-label="Close window"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="sheet-frame">
+    <iframe id="sheet-frame" title="Destination" src="about:blank" allow="autoplay; fullscreen; clipboard-write; xr-spatial-tracking" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    <p class="sheet-hint" id="sheet-hint">Page blank? <a id="sheet-hint-link" href="#" target="_blank" rel="noopener">Open in a new tab</a></p>
+  </div>
+</dialog>
+
+<script>
+(function () {
+  'use strict';
+  var root = document.documentElement;
+  var SKIN_KEY = 'mms.skin.v1';
+
+  /* ---------- skins ---------- */
+  var skinButtons = document.querySelectorAll('.skin button');
+  function paintSkin(s) {
+    root.setAttribute('data-skin', s);
+    skinButtons.forEach(function (b) {
+      var on = b.getAttribute('data-skin') === s;
+      b.classList.toggle('on', on);
+      b.setAttribute('aria-pressed', String(on));
+    });
+  }
+  paintSkin(root.getAttribute('data-skin') || 'parchment');
+  skinButtons.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var s = b.getAttribute('data-skin');
+      paintSkin(s);
+      try { localStorage.setItem(SKIN_KEY, s); } catch (e) {}
+    });
+  });
+
+  /* ---------- toast ---------- */
+  var toastEl = document.getElementById('toast'), toastTimer = 0;
+  function toast(msg) {
+    toastEl.textContent = msg;
+    toastEl.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toastEl.classList.remove('show'); }, 4200);
+  }
+
+  /* ---------- which kind of popup: real windows on desktop, in-page window on phones/tablets ---------- */
+  var touchQuery = window.matchMedia('(hover: none) and (pointer: coarse), (max-width: 700px)');
+  function inPage() { return touchQuery.matches; }
+  var tiles = Array.prototype.slice.call(document.querySelectorAll('.tile'));
+  function paintModes() {
+    var page = inPage();
+    tiles.forEach(function (t) {
+      var chip = t.querySelector('[data-mode]');
+      var framed = t.getAttribute('data-frame') !== 'no';
+      chip.textContent = page ? (framed ? 'Popup ↗' : 'New tab ↗') : 'Popup window ↗';
+    });
+    document.getElementById('mode-note').textContent = page
+      ? 'Six destinations · tap to open in a popup'
+      : 'Six destinations · each opens in its own popup window';
+  }
+  paintModes();
+  if (touchQuery.addEventListener) touchQuery.addEventListener('change', paintModes);
+
+  /* ---------- desktop: real popup windows, one per destination, cascaded ---------- */
+  var wins = {};
+  var winbar = document.getElementById('winbar');
+  var winCount = document.getElementById('win-count');
+  var winLabel = document.getElementById('win-label');
+
+  function openWindows() {
+    return Object.keys(wins).filter(function (k) {
+      var w = wins[k];
+      try { return w && !w.closed; } catch (e) { return false; }
+    });
+  }
+  function refreshBar() {
+    var keys = openWindows();
+    Object.keys(wins).forEach(function (k) { if (keys.indexOf(k) < 0) delete wins[k]; });
+    winbar.hidden = keys.length === 0;
+    winCount.textContent = String(keys.length);
+    winLabel.textContent = keys.length === 1 ? 'popup window open' : 'popup windows open';
+    tiles.forEach(function (t) { t.classList.toggle('is-open', keys.indexOf(t.getAttribute('data-key')) >= 0); });
+  }
+  setInterval(refreshBar, 800);
+
+  function popupFeatures(index) {
+    var sw = screen.availWidth || window.outerWidth, sh = screen.availHeight || window.outerHeight;
+    var sl = (typeof screen.availLeft === 'number') ? screen.availLeft : (window.screenX || 0);
+    var st = (typeof screen.availTop === 'number') ? screen.availTop : (window.screenY || 0);
+    var w = Math.max(640, Math.min(1320, Math.round(sw * 0.82)));
+    var h = Math.max(520, Math.min(920, Math.round(sh * 0.86)));
+    var step = 28 * (index % 6);
+    var left = Math.round(sl + Math.max(0, (sw - w) / 2 - 70 + step));
+    var top = Math.round(st + Math.max(0, (sh - h) / 2 - 50 + step));
+    return 'popup=yes,width=' + w + ',height=' + h + ',left=' + left + ',top=' + top + ',resizable=yes,scrollbars=yes';
+  }
+
+  function openWindow(tile) {
+    var key = tile.getAttribute('data-key'), url = tile.href;
+    var existing = wins[key];
+    try {
+      if (existing && !existing.closed) { existing.focus(); return; }
+    } catch (e) {}
+    var w = window.open(url, 'mms_' + key, popupFeatures(tiles.indexOf(tile)));
+    if (!w) {
+      toast('Popups are blocked for this page, so ' + tile.getAttribute('data-title') + ' opened in a new tab. Allow popups for my.mergercast.space to get windows.');
+      var a = document.createElement('a');
+      a.href = url; a.target = '_blank'; a.rel = 'noopener';
+      document.body.appendChild(a); a.click(); a.remove();
+      return;
+    }
+    /* The opener link is kept on purpose: browsers only let this page bring a popup
+       forward or close it ("Close all") while the link exists. All six destinations
+       are Mergercast / York AI sites. */
+    try { w.focus(); } catch (e) {}
+    wins[key] = w;
+    refreshBar();
+  }
+
+  document.getElementById('win-front').addEventListener('click', function () {
+    openWindows().forEach(function (k) { try { wins[k].focus(); } catch (e) {} });
+  });
+  document.getElementById('win-close').addEventListener('click', function () {
+    openWindows().forEach(function (k) { try { wins[k].close(); } catch (e) {} });
+    setTimeout(refreshBar, 150);
+  });
+
+  /* ---------- phones/tablets: in-page popup window ---------- */
+  var sheet = document.getElementById('sheet');
+  var frame = document.getElementById('sheet-frame');
+  var hint = document.getElementById('sheet-hint');
+  var hintTimer = 0, lastTile = null;
+  function openSheet(tile) {
+    lastTile = tile;
+    var url = tile.href;
+    document.getElementById('sheet-name').textContent = tile.getAttribute('data-title');
+    document.getElementById('sheet-url').textContent = tile.querySelector('.tile-url').textContent;
+    document.getElementById('sheet-out').href = url;
+    document.getElementById('sheet-hint-link').href = url;
+    hint.classList.remove('fade');
+    clearTimeout(hintTimer);
+    hintTimer = setTimeout(function () { hint.classList.add('fade'); }, 6000);
+    frame.src = url;
+    if (typeof sheet.showModal === 'function') sheet.showModal(); else sheet.setAttribute('open', '');
+  }
+  function closeSheet() {
+    if (sheet.open && typeof sheet.close === 'function') sheet.close(); else sheet.removeAttribute('open');
+  }
+  sheet.addEventListener('close', function () {
+    frame.src = 'about:blank';
+    if (lastTile) lastTile.focus({ preventScroll: true });
+  });
+  document.getElementById('sheet-close').addEventListener('click', closeSheet);
+  document.getElementById('sheet-out').addEventListener('click', function () { setTimeout(closeSheet, 50); });
+
+  /* ---------- tile clicks ---------- */
+  tiles.forEach(function (tile) {
+    tile.addEventListener('click', function (e) {
+      if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return; /* let modified clicks open tabs */
+      if (inPage()) {
+        if (tile.getAttribute('data-frame') === 'no') return; /* site refuses to be framed: plain new tab */
+        e.preventDefault();
+        openSheet(tile);
+        return;
+      }
+      e.preventDefault();
+      openWindow(tile);
+    });
+  });
+})();
+</script>
+</body>
+</html>
